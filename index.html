@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toDo list</title>
+    <link rel="stylesheet" href="style.css">
 
 <body>
     <h1>To-Do list</h1>
@@ -20,66 +21,7 @@
         <ul id="silinenler"></ul>
     </div>
 
-    <script>
-        const daxilEt = document.getElementById('daxilEt');
-        const elaveEt = document.getElementById('elaveEt');
-        const sil = document.getElementById('sil');
-        const siyahi = document.getElementById('siyahi');
-        const bitdi = document.getElementById('bitdi');
-        const bitenler = document.getElementById('bitenler');
-        const silinenler = document.getElementById('silinenler');
-
-        const gorulecekler = [];
-        const bitmisler = [];
-
-        elaveEt.onclick = function () {
-            gorulecekler.push(daxilEt.value);
-            yenile();
-            daxilEt.value = '';
-        }
-
-        sil.onclick = function () {
-            if (gorulecekler.length > 0) {
-                for (let i = 0; i < gorulecekler.length; i++) {
-                    bitmisler.push(gorulecekler[i]);
-                }
-                gorulecekler.length = 0;
-                yenile();
-                bitenleriGoster();
-            }
-        }
-
-        function silin(j) {
-            bitmisler.push(gorulecekler[j]);
-            gorulecekler.splice(j, 1);
-            yenile();
-            bitenleriGoster();
-        }
-
-        function temizle() {
-            bitmisler.length = 0;
-            silinenler.innerHTML = '';
-        }
-
-        function yenile() {
-            siyahi.innerHTML = '';
-            for (let i = 0; i < gorulecekler.length; i++) {
-                siyahi.innerHTML += `<li>${gorulecekler[i]}<button onclick="silin(${i})">Sil</button></li>`
-            }
-        }
-
-        bitdi.onclick = function () {
-            bitenler.style.display = (bitenler.style.display === "none" || bitenler.style.display === "") ? "block" : "none";
-        };
-
-        function bitenleriGoster() {
-            silinenler.innerHTML = '';
-            for (let i = 0; i < bitmisler.length; i++) {
-                silinenler.innerHTML += `<li>${bitmisler[i]}</li>`
-            }
-        }
-        
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
